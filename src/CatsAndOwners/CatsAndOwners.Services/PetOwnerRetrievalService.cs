@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CatsAndOwners.Interfaces;
 using CatsAndOwners.Models;
+using Newtonsoft.Json;
 
 namespace CatsAndOwners.Services
 {
@@ -21,7 +21,8 @@ namespace CatsAndOwners.Services
             var result = await _httpClient.GetAsync("http://agl-developer-test.azurewebsites.net/people.json");
             var json = await result.Content.ReadAsStringAsync();
 
-            return null;
+            var owners = JsonConvert.DeserializeObject<IList<Owner>>(json);
+            return owners;
         }
     }
 }
