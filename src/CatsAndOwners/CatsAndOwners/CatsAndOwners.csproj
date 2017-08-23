@@ -209,6 +209,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CatsAndOwners.Interfaces\CatsAndOwners.Interfaces.csproj">
+      <Project>{43734e54-eb44-48c3-bb35-940eb50f1341}</Project>
+      <Name>CatsAndOwners.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CatsAndOwners.Services\CatsAndOwners.Services.csproj">
+      <Project>{f75e235b-e153-4854-ba98-f508512878f5}</Project>
+      <Name>CatsAndOwners.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
