@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using CatsAndOwners.Interfaces;
 using CatsAndOwners.Models;
@@ -18,6 +17,7 @@ namespace CatsAndOwners.Services
 
             // perform a grouping by gender, and return back just the pet names
             return owners
+                .Where(o => o.Pets.Any(p => p.Type == typeFilter)) // only include owners with pets of the relevant type
                 .GroupBy(o => o.Gender)
                 .Select(s => new
                 {
