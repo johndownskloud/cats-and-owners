@@ -1,4 +1,7 @@
-﻿namespace CatsAndOwners.Models
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace CatsAndOwners.Models
 {
     public class Owner
     {
@@ -7,5 +10,7 @@
         public Gender Gender { get; set; }
 
         public string Name { get; set; }
+
+        public IList<Pet> Pets { get; set; }
     }
 }
