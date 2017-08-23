@@ -226,7 +226,7 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwnerGender_SingleOwnerWithNullPetsList_ReturnsEmptyDictionary()
+        public void GetPetNamesByOwnerGender_WithSingleOwnerWithNullPetsList_ReturnsEmptyDictionary()
         {
             // ARRANGE
             var owners = new List<Owner>
