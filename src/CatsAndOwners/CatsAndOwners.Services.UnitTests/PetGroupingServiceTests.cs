@@ -63,7 +63,6 @@ namespace CatsAndOwners.Services.UnitTests
             Assert.AreEqual(0, result.Count);
         }
         
-
         [TestMethod]
         public void GetPetNamesByOwner_WithMultipleMaleOwnersAndSingleCatEach_ReturnsGendersAndCatName()
         {
@@ -102,7 +101,44 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithMultipleOwnersAndMultiplePets_ReturnsGendersAndCatsNames()
+        public void GetPetNamesByOwner_WithMultipleGenderedOwnersAndSingleCatEach_ReturnsGendersAndCatName()
+        {
+            // ARRANGE
+            const string catName1 = "Otis";
+            const string catName2 = "Basil";
+            var owners = new List<Owner>
+            {
+                new Owner
+                {
+                    Gender = Gender.Female,
+                    Pets = new List<Pet>
+                    {
+                        new Pet { Name = catName1, Type = PetType.Cat }
+                    }
+                },
+                new Owner
+                {
+                    Gender = Gender.Male,
+                    Pets = new List<Pet>
+                    {
+                        new Pet { Name = catName2, Type = PetType.Cat }
+                    }
+                }
+            };
+
+
+            // ACT
+            var result = _petGroupingService.GetPetNamesByOwner(owners);
+
+
+            // ASSERT
+            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual(catName1, result.Single(r => r.Key == Gender.Female).Value.Single());
+            Assert.AreEqual(catName2, result.Single(r => r.Key == Gender.Male).Value.Single());
+        }
+
+        [TestMethod]
+        public void GetPetNamesByOwner_WithMultipleMaleOwnersAndMultiplePets_ReturnsGendersAndCatsNames()
         {
             // ARRANGE
             const string catName1 = "Otis";
@@ -139,7 +175,57 @@ namespace CatsAndOwners.Services.UnitTests
             Assert.AreEqual(catName1, result.Single().Value.First());
             Assert.AreEqual(catName2, result.Single().Value.Skip(1).First());
         }
-        
+
+        [TestMethod]
+        public void GetPetNamesByOwner_WithMultipleGenderedOwnersAndMultiplePets_ReturnsGendersAndCatsNames()
+        {
+            // ARRANGE
+            const string catName1 = "Otis";
+            const string catName2 = "Basil";
+            const string catName3 = "Sybil";
+            var owners = new List<Owner>
+            {
+                new Owner
+                {
+                    Gender = Gender.Male,
+                    Pets = new List<Pet>
+                    {
+                        new Pet { Name = catName1, Type = PetType.Cat },
+                        new Pet { Name = "Fido", Type = PetType.Dog }
+                    }
+                },
+                new Owner
+                {
+                    Gender = Gender.Other,
+                    Pets = new List<Pet>
+                    {
+                        new Pet { Name = catName2, Type = PetType.Cat },
+                        new Pet { Name = "Nemo", Type = PetType.Fish }
+                    }
+                },
+                new Owner
+                {
+                    Gender = Gender.Other,
+                    Pets = new List<Pet>
+                    {
+                        new Pet { Name = catName3, Type = PetType.Cat },
+                        new Pet { Name = "Lassie", Type = PetType.Dog }
+                    }
+                }
+            };
+
+
+            // ACT
+            var result = _petGroupingService.GetPetNamesByOwner(owners);
+
+
+            // ASSERT
+            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual(catName1, result.Single(r => r.Key == Gender.Male).Value.Single());
+            Assert.AreEqual(catName2, result.Single(r => r.Key == Gender.Other).Value.First());
+            Assert.AreEqual(catName3, result.Single(r => r.Key == Gender.Other).Value.Skip(1).First());
+        }
+
         [TestMethod]
         public void GetPetNamesByOwner_WithNullOwnersList_ReturnsEmptyDictionary()
         {
