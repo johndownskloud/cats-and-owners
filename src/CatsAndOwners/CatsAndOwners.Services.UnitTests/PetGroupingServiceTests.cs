@@ -12,7 +12,7 @@ namespace CatsAndOwners.Services.UnitTests
         private readonly PetGroupingService _petGroupingService = new PetGroupingService();
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithSingleOwnerAndSingleCat_ReturnsGenderAndCatName()
+        public void GetPetNamesByOwnerGender_WithSingleOwnerAndSingleCat_ReturnsGenderAndCatName()
         {
             // ARRANGE
             const string catName = "Otis";
@@ -30,7 +30,7 @@ namespace CatsAndOwners.Services.UnitTests
 
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT
@@ -39,7 +39,7 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithSingleOwnerAndDog_ReturnsEmptyDictionary()
+        public void GetPetNamesByOwnerGender_WithSingleOwnerAndDog_ReturnsEmptyDictionary()
         {
             // ARRANGE
             var owners = new List<Owner>
@@ -56,7 +56,7 @@ namespace CatsAndOwners.Services.UnitTests
 
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT
@@ -64,7 +64,7 @@ namespace CatsAndOwners.Services.UnitTests
         }
         
         [TestMethod]
-        public void GetPetNamesByOwner_WithMultipleMaleOwnersAndSingleCatEach_ReturnsGendersAndCatName()
+        public void GetPetNamesByOwnerGender_WithMultipleMaleOwnersAndSingleCatEach_ReturnsGendersAndCatName()
         {
             // ARRANGE
             const string catName1 = "Otis";
@@ -91,7 +91,7 @@ namespace CatsAndOwners.Services.UnitTests
 
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT
@@ -101,7 +101,7 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithMultipleGenderedOwnersAndSingleCatEach_ReturnsGendersAndCatName()
+        public void GetPetNamesByOwnerGender_WithMultipleGenderedOwnersAndSingleCatEach_ReturnsGendersAndCatName()
         {
             // ARRANGE
             const string catName1 = "Otis";
@@ -128,7 +128,7 @@ namespace CatsAndOwners.Services.UnitTests
 
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT
@@ -138,7 +138,7 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithMultipleMaleOwnersAndMultiplePets_ReturnsGendersAndCatsNames()
+        public void GetPetNamesByOwnerGender_WithMultipleMaleOwnersAndMultiplePets_ReturnsGendersAndCatsNames()
         {
             // ARRANGE
             const string catName1 = "Otis";
@@ -167,7 +167,7 @@ namespace CatsAndOwners.Services.UnitTests
 
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT
@@ -177,7 +177,7 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithMultipleGenderedOwnersAndMultiplePets_ReturnsGendersAndCatsNames()
+        public void GetPetNamesByOwnerGender_WithMultipleGenderedOwnersAndMultiplePets_ReturnsGendersAndCatsNames()
         {
             // ARRANGE
             const string catName1 = "Otis";
@@ -216,7 +216,7 @@ namespace CatsAndOwners.Services.UnitTests
 
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT
@@ -227,7 +227,7 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_SingleOwnerWithNullPetsList_ReturnsEmptyDictionary()
+        public void GetPetNamesByOwnerGender_SingleOwnerWithNullPetsList_ReturnsEmptyDictionary()
         {
             // ARRANGE
             var owners = new List<Owner>
@@ -240,7 +240,7 @@ namespace CatsAndOwners.Services.UnitTests
             };
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT
@@ -248,10 +248,10 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithNullOwnersList_ReturnsEmptyDictionary()
+        public void GetPetNamesByOwnerGender_WithNullOwnersList_ReturnsEmptyDictionary()
         {
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(null);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(null);
 
 
             // ASSERT
@@ -259,14 +259,14 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
-        public void GetPetNamesByOwner_WithEmptyOwnersList_ReturnsEmptyDictionary()
+        public void GetPetNamesByOwnerGender_WithEmptyOwnersList_ReturnsEmptyDictionary()
         {
             // ARRANGE
             var owners = new List<Owner>();
 
 
             // ACT
-            var result = _petGroupingService.GetPetNamesByOwner(owners);
+            var result = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
 
             // ASSERT

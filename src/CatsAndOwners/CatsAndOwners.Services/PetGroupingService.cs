@@ -7,7 +7,7 @@ namespace CatsAndOwners.Services
 {
     public class PetGroupingService : IPetGroupingService
     {
-        public IDictionary<Gender, List<string>> GetPetNamesByOwner(IList<Owner> owners, PetType typeFilter = PetType.Cat)
+        public IDictionary<Gender, List<string>> GetPetNamesByOwnerGender(IList<Owner> owners, PetType typeFilter = PetType.Cat)
         {
             // if the owners list is not provided, we return an empty result
             if (owners == null || !owners.Any())
