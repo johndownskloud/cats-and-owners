@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CatsAndOwners.Models;
 
 namespace CatsAndOwners.Interfaces
