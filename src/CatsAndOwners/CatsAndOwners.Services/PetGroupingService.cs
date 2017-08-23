@@ -17,7 +17,7 @@ namespace CatsAndOwners.Services
 
             // perform a grouping by gender, and return back just the pet names
             return owners
-                .Where(o => o.Pets.Any(p => p.Type == typeFilter)) // only include owners with pets of the relevant type
+                .Where(o => o.Pets != null && o.Pets.Any(p => p.Type == typeFilter)) // only include owners with pets of the relevant type
                 .GroupBy(o => o.Gender)
                 .Select(s => new
                 {
