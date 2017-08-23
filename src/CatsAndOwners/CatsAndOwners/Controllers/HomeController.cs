@@ -17,24 +17,13 @@ namespace CatsAndOwners.Controllers
 
         public async Task<ActionResult> Index()
         {
+            // retrieve the list of owners from the web service
             var owners = await _petOwnerRetrievalService.GetPetsOwnersAsync();
+
+            // group the cats by their owners' genders
             var catsByOwnerGender = _petGroupingService.GetPetNamesByOwnerGender(owners);
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            
+            return View(catsByOwnerGender);
         }
     }
 }
