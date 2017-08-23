@@ -6,6 +6,6 @@ namespace CatsAndOwners.Interfaces
 {
     public interface IPetGroupingService
     {
-        IDictionary<Gender, IList<string>> GetPetNamesByOwner(IEnumerable<Owner> owners);
+        IDictionary<Gender, List<string>> GetPetNamesByOwner(IList<Owner> owners);
     }
 }
