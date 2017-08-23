@@ -18,10 +18,10 @@ namespace CatsAndOwners.Services
 
             // perform a grouping by gender, and return back just the pet names
             return owners
-                .GroupBy(o => new { o.Gender })
+                .GroupBy(o => o.Gender)
                 .Select(s => new
                 {
-                    OwnerGender = s.Key.Gender,
+                    OwnerGender = s.Key,
                     PetNames = s
                         .SelectMany(p => p.Pets)
                         .Select(p => p.Name)
