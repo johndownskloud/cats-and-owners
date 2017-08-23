@@ -18,6 +18,7 @@ namespace CatsAndOwners.Services
 
         public async Task<IList<Owner>> GetPetsOwnersAsync()
         {
+            // TODO configuration setting for URL
             var result = await _httpClient.GetAsync("http://agl-developer-test.azurewebsites.net/people.json");
             var json = await result.Content.ReadAsStringAsync();
 
