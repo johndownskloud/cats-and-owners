@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 using CatsAndOwners.Interfaces;
 using CatsAndOwners.Models;
 
@@ -15,7 +16,7 @@ namespace CatsAndOwners.Services
             _httpClient = new HttpClient();
         }
 
-        public IList<Owner> GetPetsOwners()
+        public async Task<IList<Owner>> GetPetsOwnersAsync()
         {
             throw new NotImplementedException();
         }

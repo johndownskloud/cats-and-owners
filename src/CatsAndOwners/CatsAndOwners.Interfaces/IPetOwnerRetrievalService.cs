@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using CatsAndOwners.Models;
 
 namespace CatsAndOwners.Interfaces
 {
     public interface IPetOwnerRetrievalService
     {
-        IList<Owner> GetPetsOwners();
+        Task<IList<Owner>> GetPetsOwnersAsync();
     }
 }
