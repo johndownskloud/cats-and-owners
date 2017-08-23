@@ -8,7 +8,7 @@ namespace CatsAndOwners.Services.UnitTests
     [TestClass]
     public class PetGroupingServiceTests
     {
-        private PetGroupingService _petGroupingService;
+        private readonly PetGroupingService _petGroupingService = new PetGroupingService();
 
         [TestMethod]
         public void GetPetNamesByOwner_WithSingleOwnerAndPet_ReturnsGenderAndPetName()
