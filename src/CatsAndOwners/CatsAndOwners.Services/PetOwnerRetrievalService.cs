@@ -16,11 +16,12 @@ namespace CatsAndOwners.Services
             _httpClient = new HttpClient();
         }
 
-        public async Task<IList<Owner>> GetPetsOwnersAsync()
+        public async Task<IList<Owner>> GetPetsOwnersAsync(string url)
         {
-            // TODO configuration setting for URL
-            var result = await _httpClient.GetAsync("http://agl-developer-test.azurewebsites.net/people.json");
-            var json = await result.Content.ReadAsStringAsync();
+            // retrieve the list of owners; if an exception is thrown or 
+            // an invalid response is received then we can't deal with 
+            // it here, so it will be propagated to the caller
+            var result = await _httpClient.GetAsync(url);
 
             var owners = JsonConvert.DeserializeObject<IList<Owner>>(json);
             return owners;

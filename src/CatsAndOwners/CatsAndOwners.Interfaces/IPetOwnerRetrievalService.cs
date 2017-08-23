@@ -6,6 +6,6 @@ namespace CatsAndOwners.Interfaces
 {
     public interface IPetOwnerRetrievalService
     {
-        Task<IList<Owner>> GetPetsOwnersAsync();
+        Task<IList<Owner>> GetPetsOwnersAsync(string url);
     }
 }

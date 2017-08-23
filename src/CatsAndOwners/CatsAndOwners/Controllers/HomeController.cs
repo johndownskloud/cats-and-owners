@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Configuration;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using CatsAndOwners.Interfaces;
 
@@ -17,8 +18,11 @@ namespace CatsAndOwners.Controllers
 
         public async Task<ActionResult> Index()
         {
+            // get the URL to retrieve the list from
+            var url = ConfigurationManager.AppSettings["DataUrl"];
+
             // retrieve the list of owners from the web service
-            var owners = await _petOwnerRetrievalService.GetPetsOwnersAsync();
+            var owners = await _petOwnerRetrievalService.GetPetsOwnersAsync(url);
 
             // group the cats by their owners' genders
             var catsByOwnerGender = _petGroupingService.GetPetNamesByOwnerGender(owners);
