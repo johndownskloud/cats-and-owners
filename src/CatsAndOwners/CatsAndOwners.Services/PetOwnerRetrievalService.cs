@@ -22,9 +22,11 @@ namespace CatsAndOwners.Services
             // an invalid response is received then we can't deal with 
             // it here, so it will be propagated to the caller
             var result = await _httpClient.GetAsync(url);
+            result.EnsureSuccessStatusCode();
 
-            var owners = JsonConvert.DeserializeObject<IList<Owner>>(json);
-            return owners;
+            // parse the response into the model types
+            var json = await result.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<IList<Owner>>(json);
         }
     }
 }
