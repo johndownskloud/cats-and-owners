@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatsAndOwners.Interfaces", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatsAndOwners.Services.UnitTests", "CatsAndOwners.Services.UnitTests\CatsAndOwners.Services.UnitTests.csproj", "{A2E009F8-9047-4B02-957F-2FA58DC69787}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatsAndOwners.Models", "CatsAndOwners.Models\CatsAndOwners.Models.csproj", "{DC7DDA12-0513-41D7-9DD2-12D7F271B329}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A2E009F8-9047-4B02-957F-2FA58DC69787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2E009F8-9047-4B02-957F-2FA58DC69787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2E009F8-9047-4B02-957F-2FA58DC69787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC7DDA12-0513-41D7-9DD2-12D7F271B329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7DDA12-0513-41D7-9DD2-12D7F271B329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7DDA12-0513-41D7-9DD2-12D7F271B329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7DDA12-0513-41D7-9DD2-12D7F271B329}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

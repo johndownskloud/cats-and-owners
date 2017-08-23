@@ -58,6 +58,10 @@
       <Project>{43734e54-eb44-48c3-bb35-940eb50f1341}</Project>
       <Name>CatsAndOwners.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CatsAndOwners.Models\CatsAndOwners.Models.csproj">
+      <Project>{dc7dda12-0513-41d7-9dd2-12d7f271b329}</Project>
+      <Name>CatsAndOwners.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CatsAndOwners.Services\CatsAndOwners.Services.csproj">
       <Project>{f75e235b-e153-4854-ba98-f508512878f5}</Project>
       <Name>CatsAndOwners.Services</Name>
