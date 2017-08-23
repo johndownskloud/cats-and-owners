@@ -227,6 +227,27 @@ namespace CatsAndOwners.Services.UnitTests
         }
 
         [TestMethod]
+        public void GetPetNamesByOwner_SingleOwnerWithNullPetsList_ReturnsEmptyDictionary()
+        {
+            // ARRANGE
+            var owners = new List<Owner>
+            {
+                new Owner
+                {
+                    Gender = Gender.Male,
+                    Pets = null
+                }
+            };
+
+            // ACT
+            var result = _petGroupingService.GetPetNamesByOwner(owners);
+
+
+            // ASSERT
+            Assert.AreEqual(0, result.Count);
+        }
+
+        [TestMethod]
         public void GetPetNamesByOwner_WithNullOwnersList_ReturnsEmptyDictionary()
         {
             // ACT
