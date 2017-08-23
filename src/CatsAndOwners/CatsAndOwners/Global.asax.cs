@@ -3,6 +3,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using CatsAndOwners.Interfaces;
+using CatsAndOwners.Services;
 
 namespace CatsAndOwners
 {
@@ -25,7 +27,15 @@ namespace CatsAndOwners
             // add MVC controllers so Autofac recognises them
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            // TODO register services here
+            // register services
+            builder
+                .RegisterType<PetOwnerRetrievalService>()
+                .As<IPetOwnerRetrievalService>()
+                .InstancePerRequest();
+            builder
+                .RegisterType<PetGroupingService>()
+                .As<IPetGroupingService>()
+                .InstancePerRequest();
 
             // build the container and set it to be the default resolver
             var container = builder.Build();
