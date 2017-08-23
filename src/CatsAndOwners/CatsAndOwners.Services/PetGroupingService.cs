@@ -24,6 +24,7 @@ namespace CatsAndOwners.Services
                     OwnerGender = s.Key,
                     PetNames = s
                         .SelectMany(p => p.Pets)
+                        .Where(p => p.Type == typeFilter)
                         .Select(p => p.Name)
                         .ToList()
                 })
