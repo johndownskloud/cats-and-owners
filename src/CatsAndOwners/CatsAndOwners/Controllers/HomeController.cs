@@ -1,19 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using CatsAndOwners.Services;
+using CatsAndOwners.Interfaces;
 
 namespace CatsAndOwners.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPetOwnerRetrievalService _petOwnerRetrievalService;
+        private readonly IPetGroupingService _petGroupingService;
+
+        public HomeController(IPetOwnerRetrievalService petOwnerRetrievalService, IPetGroupingService petGroupingService)
+        {
+            _petOwnerRetrievalService = petOwnerRetrievalService;
+            _petGroupingService = petGroupingService;
+        }
+
         public async Task<ActionResult> Index()
         {
-            var p = new PetOwnerRetrievalService();
-            await p.GetPetsOwnersAsync();
+            var owners = await _petOwnerRetrievalService.GetPetsOwnersAsync();
+            var catsByOwnerGender = _petGroupingService.GetPetNamesByOwnerGender(owners);
 
             return View();
         }
